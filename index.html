@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Feliz Dia dos Namorados 💖</title>
+  <style>
+    /* Fundo e corpo */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: black;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow-x: hidden; /* evita scroll horizontal */
+      -webkit-tap-highlight-color: transparent; /* remove highlight no iOS */
+      touch-action: manipulation; /* melhora resposta no toque */
+      user-select: none;
+    }
+
+    /* Container que ocupa a tela inteira */
+    body {
+      position: relative;
+      min-height: 100vh;
+    }
+
+    /* Palavras "eu te amo" */
+    .amor {
+      position: fixed; /* fixado na tela, não dentro do fluxo */
+      color: red;
+      font-size: clamp(14px, 4vw, 20px); /* responsivo */
+      animation: cair linear forwards;
+      pointer-events: none;
+      user-select: none;
+      will-change: transform, opacity;
+      text-shadow: 0 0 5px #ff0000;
+    }
+
+    @keyframes cair {
+      0% {
+        transform: translateY(-50px);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
+    }
+
+    /* Botão centralizado */
+    .botao-container {
+      position: fixed; /* fixa na tela */
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      width: 90vw;
+      max-width: 320px;
+      padding: 0 10px;
+    }
+
+    .botao {
+      width: 100%;
+      background-color: #ff4d6d;
+      color: white;
+      font-size: clamp(18px, 5vw, 24px);
+      padding: 15px 0;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 15px red;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      font-weight: 600;
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      touch-action: manipulation;
+    }
+
+    .botao:hover,
+    .botao:focus {
+      background-color: #ff1f4a;
+      box-shadow: 0 0 25px pink;
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Botão com a data no centro -->
+  <div class="botao-container">
+    <button class="botao" onclick="irParaSegundaPagina()" aria-label="Ir para página 2 com data 12 de junho de 2025">
+      12-06-2025
+    </button>
+  </div>
+
+  <script>
+    // Redirecionar para a segunda página
+    function irParaSegundaPagina() {
+      window.location.href = "pagina2.html";
+    }
+
+    // Criar "eu te amo" caindo
+    function criarChuva() {
+      const amor = document.createElement("div");
+      amor.classList.add("amor");
+      amor.innerText = "eu te amo ❤️";
+
+      // Define posição horizontal random e animação com duração random
+      amor.style.left = Math.random() * (window.innerWidth - 80) + "px";
+      amor.style.animationDuration = (Math.random() * 3 + 3) + "s";
+
+      document.body.appendChild(amor);
+
+      // Remover depois que cair (um pouco maior que animação)
+      setTimeout(() => {
+        amor.remove();
+      }, 6500);
+    }
+
+    // Iniciar chuva contínua
+    setInterval(criarChuva, 200);
+  </script>
+
+</body>
+</html>

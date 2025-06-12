@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nosso Amor 💞</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #ffe6e6, #ffd6e0);
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 50px;
+      color: #880e4f;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    #contador {
+      font-size: 28px;
+      margin: 20px 0 40px;
+      color: #c2185b;
+    }
+
+    .menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .menu button,
+    .audio-controls button {
+      background-color: #ff4d6d;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .menu button:hover,
+    .audio-controls button:hover {
+      background-color: #d81b60;
+    }
+
+    .audio-controls {
+      margin-top: 50px;
+      background-color: #fff0f5;
+      border: 2px solid #ff99aa;
+      border-radius: 15px;
+      padding: 20px;
+      display: inline-block;
+    }
+
+    .audio-controls input[type="range"] {
+      width: 150px;
+      vertical-align: middle;
+      margin-left: 10px;
+    }
+
+    .audio-label {
+      font-size: 16px;
+      color: #880e4f;
+      margin-right: 5px;
+    }
+
+    /* Estilos do botão coração */
+    .heart-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      color: #ff4d6d;
+      font-size: 36px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .heart-button:hover {
+      transform: scale(1.2);
+    }
+
+    .heart-button:focus {
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Botão Coração no canto superior direito -->
+  <button class="heart-button" onclick="window.location.href='index.html'">❤️</button>
+
+  <h1>Sou a pessoa mais feliz do mundo há...</h1>
+  <div id="contador">Calculando...</div>
+
+  <div class="menu">
+    <button onclick="location.href='jogo.html'">🧠 Jogo da Memória</button>
+    <button onclick="location.href='homenagem.html'">💌 Texto de Homenagem</button>
+    <button onclick="location.href='album.html'">📸 Álbum de Fotos</button>
+  </div>
+
+  <!-- Música fora da pasta (na mesma pasta do HTML) -->
+  <div class="audio-controls">
+    <!-- Caminho correto para o arquivo de áudio na mesma pasta -->
+    <audio id="musica" src="musica.mp3" loop></audio>
+    <div style="margin-bottom: 10px;">
+      <button onclick="togglePlay()">⏯️ Play/Pause</button>
+    </div>
+    <div>
+      <span class="audio-label">🔊 Volume:</span>
+      <input type="range" id="volume" min="0" max="1" step="0.01" value="0.5" />
+    </div>
+  </div>
+
+  <script>
+    // Data de início do relacionamento (alterada para 01/01/2020)
+    const dataInicio = new Date(2020, 0, 1); // Janeiro = 0 (zero-indexado)
+
+    // Função para atualizar o contador de tempo
+    function atualizarContador() {
+      const hoje = new Date();
+      const diff = hoje - dataInicio;
+
+      // Calcular anos, dias, horas, minutos e segundos
+      const anos = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25)); // anos considerando ano bissexto
+      const dias = Math.floor((diff % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((diff % (1000 * 60)) / 1000);
+
+      // Exibir no formato: anos, dias, horas, minutos, segundos
+      document.getElementById('contador').innerText = `${anos} anos, ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos de amor! 💖`;
+    }
+
+    // Atualizar a cada 1 segundo
+    setInterval(atualizarContador, 1000);
+  </script>
+
+  <script>
+    // 🎵 Música
+    const musica = document.getElementById('musica');
+    const volumeControl = document.getElementById('volume');
+
+    volumeControl.addEventListener('input', function () {
+      musica.volume = this.value;
+    });
+
+    function togglePlay() {
+      if (musica.paused) {
+        musica.play().catch(() => {});  // Ignora erro caso o navegador bloqueie a reprodução automática
+      } else {
+        musica.pause();
+      }
+    }
+
+    // Tentar tocar a música assim que a página carregar
+    window.onload = () => {
+      musica.play().catch(() => {
+        console.log("O navegador bloqueou a reprodução automática. Clique para tocar.");
+      });
+    }
+
+    // Tocar após qualquer clique (necessário em celular e Chrome)
+    document.addEventListener('click', () => {
+      musica.play().catch(() => {});  // Tenta tocar a música ao clicar
+    }, { once: true });
+
+    musica.volume = 0.5;  // Volume inicial 50%
+  </script>
+
+</body>
+</html>

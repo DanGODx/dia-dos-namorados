@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Texto de Homenagem 💌</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #ffebee, #f8bbd0);
+      font-family: 'Segoe UI', sans-serif;
+      color: #880e4f;
+      text-align: center;
+      padding: 50px 15px 70px;
+      position: relative;
+      margin: 0;
+      min-height: 100vh;
+      box-sizing: border-box;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    h1 {
+      font-size: clamp(28px, 6vw, 40px);
+      margin-bottom: 20px;
+      color: #d81b60;
+      user-select: text;
+    }
+
+    p {
+      font-size: clamp(16px, 4vw, 20px);
+      color: #c2185b;
+      line-height: 1.6;
+      margin-bottom: 40px;
+      padding: 0 15px;
+      user-select: text;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 12px;
+      padding: 30px 20px;
+      box-shadow: 0 0 15px rgba(216, 27, 96, 0.3);
+    }
+
+    /* Botões de navegação */
+    .nav-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .nav-buttons button {
+      background-color: #ff4d6d;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      min-width: 180px;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .nav-buttons button:hover,
+    .nav-buttons button:focus {
+      background-color: #d81b60;
+      outline: none;
+    }
+
+    /* Botões Coração e Voltar fixos no topo */
+    .heart-button,
+    .back-button {
+      position: fixed;
+      top: 15px;
+      font-size: 30px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #ff4d6d;
+      padding: 10px;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      transition: transform 0.2s ease;
+      z-index: 1000;
+    }
+
+    .back-button {
+      left: 15px;
+    }
+
+    .heart-button {
+      right: 15px;
+    }
+
+    .heart-button:hover,
+    .back-button:hover,
+    .heart-button:focus,
+    .back-button:focus {
+      transform: scale(1.2);
+      outline: none;
+    }
+
+    /* Estilo dos controles de áudio */
+    .audio-controls {
+      margin-top: 30px;
+      background-color: #fff0f5;
+      border: 2px solid #ff99aa;
+      border-radius: 15px;
+      padding: 20px;
+      display: inline-block;
+      user-select: none;
+    }
+
+    .audio-controls button {
+      background-color: #ff4d6d;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .audio-controls button:hover,
+    .audio-controls button:focus {
+      background-color: #d81b60;
+      outline: none;
+    }
+
+    .audio-controls input[type="range"] {
+      width: 150px;
+      vertical-align: middle;
+      margin-left: 10px;
+      cursor: pointer;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .audio-label {
+      font-size: 16px;
+      color: #880e4f;
+      margin-right: 5px;
+      user-select: none;
+    }
+
+    @media (max-width: 420px) {
+      body {
+        padding: 40px 10px 70px;
+      }
+
+      .audio-controls input[type="range"] {
+        width: 120px;
+      }
+
+      .nav-buttons button {
+        min-width: 140px;
+        font-size: 14px;
+        padding: 10px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Botão Voltar para a página anterior -->
+  <button class="back-button" aria-label="Voltar" onclick="window.history.back()">⬅️</button>
+  
+  <!-- Botão Coração para voltar à página principal -->
+  <button class="heart-button" aria-label="Página Inicial" onclick="window.location.href='index.html'">❤️</button>
+
+  <div class="container" role="main">
+    <h1>Minha Gatinha,</h1>
+
+    <p>
+      Desde que você entrou na minha vida, tudo ficou mais bonito, quero que essa homenagem reforce o quanto eu amo você e o quanto eu admiro a pessoa que você é, e o que temos construído juntos até aqui. Mesmo nos meus dias mais distantes, saiba que estou pensando em você, mesmo nos meus dias mais complicados lembro de você. O que estou tentando dizer é que, com você, eu me sinto incrível, amado, feliz e tenho forças para superar qualquer desafio. Você está 24 horas presente em meus pensamentos e conto os segundos para te ver, pois cada momento ao seu lado é um sonho realizado. A cada dia que passa, me sinto mais grato por ter você. Você é a razão do meu sorriso, da minha felicidade e de cada batida do meu coração. 
+      Obrigado por ser quem você é, por me fazer sentir amado e por me fazer a pessoa mais feliz do mundo. Eu te amo mais do que palavras podem expressar! 💖
+    </p>
+
+    <!-- Controles de Música -->
+    <div class="audio-controls" aria-label="Controles de áudio">
+      <audio id="musica" src="music2.mp3" loop></audio>
+      <div style="margin-bottom: 10px;">
+        <button onclick="togglePlay()" aria-pressed="false" id="playPauseBtn">⏯️ Play</button>
+      </div>
+      <div>
+        <span class="audio-label">🔊 Volume:</span>
+        <input type="range" id="volume" min="0" max="1" step="0.01" value="0.5" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0.5" aria-label="Controle de volume" />
+      </div>
+    </div>
+
+    <div class="nav-buttons">
+      <button onclick="window.location.href='index.html'">💞 Voltar à Página Inicial</button>
+      <button onclick="window.location.href='pagina2.html'">💌 Voltar para a Página de Amor</button>
+    </div>
+  </div>
+
+  <script>
+    const musica = document.getElementById('musica');
+    const volumeControl = document.getElementById('volume');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+
+    volumeControl.addEventListener('input', function () {
+      musica.volume = this.value;
+      this.setAttribute('aria-valuenow', this.value);
+    });
+
+    function togglePlay() {
+      if (musica.paused) {
+        musica.play().then(() => {
+          playPauseBtn.textContent = '⏸️ Pause';
+          playPauseBtn.setAttribute('aria-pressed', 'true');
+        }).catch(() => {});
+      } else {
+        musica.pause();
+        playPauseBtn.textContent = '⏯️ Play';
+        playPauseBtn.setAttribute('aria-pressed', 'false');
+      }
+    }
+
+    // Tocar após qualquer clique (necessário em alguns dispositivos e navegadores)
+    document.addEventListener('click', () => {
+      if (musica.paused) {
+        musica.play().then(() => {
+          playPauseBtn.textContent = '⏸️ Pause';
+          playPauseBtn.setAttribute('aria-pressed', 'true');
+        }).catch(() => {});
+      }
+    }, { once: true });
+
+    musica.volume = 0.5;
+  </script>
+
+</body>
+</html>
